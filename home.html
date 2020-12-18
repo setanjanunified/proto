@@ -9,12 +9,12 @@
     function fetchOffers()
     {
         var id = $("#id").val();
-        $('#offer').empty();
-        $('#offer').append('<tr><th>Offer ID</th><th>Offer Name</th><th>Tracking Link</th><th>Generate Custom Link</th></tr>');
         if(!id) {
             fetch('/offers')
             .then(response => response.json())
             .then(data => {
+                $('#offer').empty();
+                $('#offer').append('<tr><th>Offer ID</th><th>Offer Name</th><th>Tracking Link</th><th>Generate Custom Link</th></tr>');
              for(datum in data.data) {
                    var htmlObj = data.data[datum].Offer;
                    var link = data.data[datum].TrackingLink.click_url;
